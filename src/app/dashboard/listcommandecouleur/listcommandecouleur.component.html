@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <div style="display: flex;justify-content: space-between;">
+        <h2>Liste des commandes</h2>
+        <!-- Bouton pour ajouter une commande -->
+        <!-- <button [routerLink]="['/commande/ajout']" class="btn btn-primary"> Ajouter </button> -->
+    </div>
+    <div class="row mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Adresse</th>
+                    <th>Couleur</th>
+                    <th>Quantité</th>
+                    <th>Prix</th>
+                    <th>Date de commande</th>
+                    <th>Date de livraison</th>
+                    <th>Livrée</th>
+                    <th>Actions</th> <!-- Ajout d'une colonne pour les actions -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Boucle sur les commandes et affichage des données -->
+                <tr *ngFor="let commandess of commandes">
+                    <td>{{ commandess.user }}</td> <!-- Nom de l'utilisateur -->
+                    <td>{{ commandess.prenom }}</td> <!-- Prénom de l'utilisateur -->
+                    <td>{{ commandess.emailUser }}</td> <!-- Email de l'utilisateur -->
+                    <td>{{ commandess.usertel }}</td> <!-- Téléphone de l'utilisateur -->
+                    <td>{{ commandess.useraddresse }}</td> <!-- Adresse de l'utilisateur -->
+                    <td>{{ commandess.couleur }}</td> <!-- Couleur de la commande -->
+                    <td>{{ commandess.quantite }}</td> <!-- Quantité commandée -->
+                    <td>{{ commandess.prix }}</td> <!-- Prix de la commande -->
+                    <td>{{ commandess.date | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ commandess.datelivraison ? (commandess.datelivraison | date: 'dd/MM/yyyy') : 'Non livrée' }}</td> <!-- Date de livraison si disponible -->
+ 
+                    <td>{{ commandess.livre ? 'Oui' : 'Non' }}</td> <!-- Livrée ou non --><!-- Date de la commande -->
+                   
+                    <td>
+                        <button (click)="marquerLivre(commandess.id)">Marquer Livrée</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
